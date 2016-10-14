@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><%= webpackConfig.metadata.title %></title>
+
+    <meta name="description" content="<%= webpackConfig.metadata.title %>">
+    <% if (webpackConfig.htmlElements.headTags) { %>
+    <!-- Configured Head Tags  -->
+    <%= webpackConfig.htmlElements.headTags %>
+    <% } %>
+
+    <!-- base url -->
+    <base href="<%= webpackConfig.metadata.baseUrl %>">
+
+   
+</head>
+
+<body>
+
+    <app>
+        <div id="preloader">
+            <div></div>
+        </div>
+    </app>
+
+    <!-- Google Analytics: change UA-71073175-1 to be your site's ID -->
+    <style>
+        @-webkit-keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(1turn);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(1turn);
+            }
+        }
+
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1003;
+            background: #000;
+        }
+
+            #preloader > div {
+                display: block;
+                position: relative;
+                left: 50%;
+                top: 50%;
+                width: 150px;
+                height: 150px;
+                margin: -75px 0 0 -75px;
+                border-radius: 50%;
+                border: 3px solid transparent;
+                border-top-color: #f95372;
+                transform: translateZ(0);
+                animation: spin 2s linear infinite;
+            }
+
+                #preloader > div:before {
+                    content: "";
+                    position: absolute;
+                    top: 5px;
+                    left: 5px;
+                    right: 5px;
+                    bottom: 5px;
+                    border-radius: 50%;
+                    border: 3px solid transparent;
+                    border-top-color: #00abff;
+                    -webkit-animation: spin 3s linear infinite;
+                    animation: spin 3s linear infinite;
+                }
+
+                #preloader > div:after {
+                    content: "";
+                    position: absolute;
+                    top: 15px;
+                    left: 15px;
+                    right: 15px;
+                    bottom: 15px;
+                    border-radius: 50%;
+                    border: 3px solid transparent;
+                    border-top-color: #e7ba08;
+                    animation: spin 1.5s linear infinite;
+                }
+    </style>
+    <% if (webpackConfig.metadata.isDevServer && webpackConfig.metadata.HMR !== true) { %>
+    <!-- Webpack Dev Server reload -->
+    <% } %>
+    <script src="assets/js/sweetalert2.min.js"></script>
+
+</body>
+</html>

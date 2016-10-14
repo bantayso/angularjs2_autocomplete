@@ -1,0 +1,24 @@
+<div id="top-menu">
+  <div class="title">
+    <h2>Bàn Tay Số</h2>
+  </div>
+   <div class="menu-search">
+      <div class="input-group">
+        <input [(ngModel)]="selected"
+         [typeahead]="persons"
+         [typeaheadItemTemplate]="customItemTemplate"
+         [typeaheadOptionField]="'name'"
+         (typeaheadOnSelect)="typeaheadOnSelect($event)"
+         class="form-control">
+      </div>
+  </div>
+</div>
+<div id="main" *ngIf="person.name!==''">
+ <pre>  
+   <h2>Name : {{person.name}}</h2>
+   <p><strong>Address</strong> : {{person.address}}</p>
+   <p><strong>Phone</strong> : {{person.phone}}</p>
+   <p><strong>Email  </strong> : {{person.email}}</p>
+   <p><strong>Gender</strong> : {{person.Gender}}</p>
+   </pre>
+</div>
